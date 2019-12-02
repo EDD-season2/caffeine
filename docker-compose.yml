@@ -2,7 +2,7 @@ version: "3"
 
 services:
   backend:
-      build: backend-image
+      build: dp
       container_name: backend-container
   nginx:
     image: nginx
