@@ -4,6 +4,7 @@ ls -al
 cd caffeine
 ls -al
 sudo git clone -b build https://github.com/kangmin46/dp.git
+ls -al
 sudo docker-compose up -d --build
 
 
