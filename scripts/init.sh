@@ -22,12 +22,12 @@ if [ ! -d "$BACK" ]; then
     ls -al
     git clone -b build https://github.com/yuyu154/dp.git
     cd "$BACK"
-    ./gradlew -parallel build
+    ./gradlew build
     cd ..
 else
     cd "$BACK"
     git pull
-    ./gradlew -parallel build
+    ./gradlew build
     cd ..
 fi
 
