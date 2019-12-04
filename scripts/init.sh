@@ -2,6 +2,7 @@
 
 sudo snap install docker --devmode
 sudo apt-get install npm -y 
+sudo apt-get install openjdk-8-jre-headless
 
 CAFFEINE="caffeine/";
 BACK="dp/";
