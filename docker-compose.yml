@@ -2,7 +2,7 @@ version: "3"
 
 services:
   backend:
-    build: dp
+    build: caffeine-be
     container_name: backend-container
     networks:
       - app-net
