@@ -2,7 +2,7 @@
 
 sudo snap install docker --devmode
 sudo apt-get install npm -y 
-sudo apt-get install openjdk-8-jre-headless
+sudo apt-get install openjdk-8-jdk
 
 CAFFEINE="caffeine/";
 BACK="dp/";
@@ -17,6 +17,7 @@ else
     git pull
 fi
 
+echo 'build backend-container'
 if [ ! -d "$BACK" ]; then
     ls -al
     git clone -b build https://github.com/yuyu154/dp.git
@@ -30,6 +31,7 @@ else
     cd ..
 fi
 
+echo 'build frontend-shop-container'
 if [ ! -d "$FRONT" ]; then
     ls -al
     git clone -b develop https://github.com/edd-season2/caffeine-fe-shop.git
