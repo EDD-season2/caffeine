@@ -2,7 +2,6 @@
 
 sudo snap install docker --devmode
 sudo apt-get install npm -y 
-sudo apt-get install openjdk-8-jdk
 
 CAFFEINE="caffeine/";
 BACK="dp/";
@@ -20,15 +19,9 @@ fi
 echo 'build backend-container'
 if [ ! -d "$BACK" ]; then
     ls -al
-    git clone -b build https://github.com/yuyu154/dp.git
-    cd "$BACK"
-    ./gradlew build
-    cd ..
+    git clone -b build https://github.com/kangmin46/dp.git
 else
-    cd "$BACK"
     git pull
-    ./gradlew build
-    cd ..
 fi
 
 echo 'build frontend-shop-container'
