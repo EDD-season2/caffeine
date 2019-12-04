@@ -18,10 +18,14 @@ fi
 
 if [ ! -d "$BACK" ]; then
     ls -al
-    git clone -b build https://github.com/kangmin46/dp.git
+    git clone -b build https://github.com/yuyu154/dp.git
+    ./gradlew -parallel build
+    cd ..
 else
     cd "$BACK"
     git pull
+    ./gradlew -parallel build
+    cd ..
 fi
 
 if [ ! -d "$FRONT" ]; then
