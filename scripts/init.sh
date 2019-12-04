@@ -1,5 +1,5 @@
-snap install docker --devmode
-apt-get install npm -y 
+sudo snap install docker --devmode
+sudo apt-get install npm -y 
 
 git clone -b practice https://github.com/EDD-season2/caffeine.git
 cd caffeine
