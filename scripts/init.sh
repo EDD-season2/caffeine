@@ -3,7 +3,7 @@
 sudo snap install docker --devmode
 sudo apt-get install npm -y 
 
-if [! -d caffeine]; then
+if [ ! -d caffeine]; then
     ls -al
     git clone -b practice https://github.com/EDD-season2/caffeine.git
     cd caffeine
@@ -12,7 +12,7 @@ else
     git pull
 fi
 
-if [! -d dp]; then
+if [ ! -d dp]; then
     ls -al
     git clone -b build https://github.com/kangmin46/dp.git
 else
@@ -20,7 +20,7 @@ else
     git pull
 fi
 
-if [! -d caffeine-fe-shop]; then
+if [ ! -d caffeine-fe-shop]; then
     ls -al
     git clone -b develop https://github.com/edd-season2/caffeine-fe-shop.git
     cd caffeine-fe-shop
