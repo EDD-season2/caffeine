@@ -39,7 +39,7 @@ CAFFEINE="caffeine/";
 # cd ..
 if [ ! -d "$CAFFEINE" ]; then
     ls -al
-    git clone -b docker-test https://github.com/EDD-season2/caffeine.git
+    git clone -b docker-test-action https://github.com/EDD-season2/caffeine.git
     cd "$CAFFEINE"
 else
     cd "$CAFFEINE"
