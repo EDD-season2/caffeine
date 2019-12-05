@@ -13,7 +13,7 @@ services:
     ports:
       - 81:80
     volumes:
-      - ./scripts/front-customer-nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./scripts/front-shop-nginx.conf:/etc/nginx/conf.d/default.conf
       - ./nginx/log:/var/log/nginx
       # - ./caffeine-fe-shop:/usr/src/app/public
     networks:
@@ -24,7 +24,7 @@ services:
     ports:
       - 82:80
     volumes:
-      - ./scripts/front-owner-nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./scripts/front-customer-nginx.conf:/etc/nginx/conf.d/default.conf
       - ./nginx/log:/var/log/nginx
   nginx:
     image: nginx
