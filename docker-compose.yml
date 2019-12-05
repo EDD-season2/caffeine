@@ -2,21 +2,30 @@ version: "3"
 
 services:
   backend:
-    build: caffeine-be
+    image: kangmin46/backend
+    # build: caffeine-be
     container_name: backend-container
     networks:
       - app-net
   shop:
-    image: nginx
+    image: kangmin46/frontend-shop
     container_name: frontend-shop-container
     ports:
       - 81:80
     volumes:
       - ./scripts/front-customer-nginx.conf:/etc/nginx/conf.d/default.conf
       - ./nginx/log:/var/log/nginx
-      - ./caffeine-fe-shop:/usr/src/app/public
+      # - ./caffeine-fe-shop:/usr/src/app/public
     networks:
       - app-net
+  customer:
+    image: kangmin46/frontend-customer
+    container_name: frontend-customer-container
+    ports:
+      - 82:80
+    volumes:
+      - ./scripts/front-owner-nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/log:/var/log/nginx
   nginx:
     image: nginx
     container_name: nginx-container
