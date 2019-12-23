@@ -40,6 +40,19 @@ services:
       - ./nginx/log:/var/log/nginx
     networks:
       - app-net
+  redis:
+    image: redis
+    networks:
+      - app-net
+  notification:
+    image: laterality/caffeine-notification:1577067797
+    depends_on:
+    - redis
+    environment:
+    - REDIS_HOST=redis:6379
+    - AUTH_HEADER=<AUTH_HEADER_HERE>
+    networks:
+    - app-net
 
 networks:
   app-net:
