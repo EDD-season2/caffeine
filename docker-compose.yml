@@ -1,0 +1,50 @@
+version: "3"
+
+services:
+  backend:
+    image: kangmin46/backend
+    networks:
+      - app-net
+    depends_on:
+      - notification
+  shop:
+    image: kangmin46/frontend-shop
+    volumes:
+      - ./nginx/log:/var/log/nginx
+    networks:
+      - app-net
+  customer:
+    image: kangmin46/frontend-customer
+    volumes:
+      - ./nginx/log:/var/log/nginx
+    networks:
+      - app-net
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+    depends_on:
+      - backend
+      - shop
+      - customer
+    volumes:
+      - ./scripts/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/log:/var/log/nginx
+    networks:
+        - app-net
+  redis:
+    image: redis
+    networks:
+      - app-net
+  notification:
+    image: laterality/caffeine-notification:1577349516
+    depends_on:
+      - redis
+    environment:
+      - REDIS_ADDR=redis:6379
+      - AUTH_HEADER=<AUTH_HEADER_HERE>
+    networks:
+      - app-net
+
+networks:
+  app-net:
